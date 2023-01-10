@@ -112,7 +112,7 @@ class AdaBoost:
             shuffle=False)
         return generator
             
-    def fit(self, M = 3, verbose=False):
+    def fit(self, val_generator, M = 3, verbose=False):
         '''
         Fit model. Arguments:
         X: independent variables - array-like matrix
@@ -157,17 +157,18 @@ class AdaBoost:
             model_path = "AdaBoost/model_"+str(m)
             tensorboard = TensorBoard(log_dir=log_path)
 
-            modelcheckpoint = ModelCheckpoint(model_path, monitor="aar_metric_class", save_best_only=True)
+            modelcheckpoint = ModelCheckpoint(model_path, monitor="val_aar_metric_class", save_best_only=True)
 
-            early_stop = EarlyStopping(monitor='aar_metric_class', patience=self.patience, verbose=1, 
+            early_stop = EarlyStopping(monitor='val_aar_metric_class', patience=self.patience, verbose=1, 
                                     mode='auto', restore_best_weights=True)
             
-            reduce_lr = ReduceLROnPlateau(monitor='aar_metric_class', factor=self.reduce_factor, patience=10, 
+            reduce_lr = ReduceLROnPlateau(monitor='val_aar_metric_class', factor=self.reduce_factor, patience=10, 
                                         verbose=1, mode='auto')   
             if verbose:
                 print("\n\n Training "+str(m)+" classifier:\n\n")
             G_m.fit(generator, epochs=self.epochs,
                             verbose=verbose,
+                            validation_data=val_generator,
                             callbacks=[reduce_lr, early_stop, tensorboard, modelcheckpoint])
             if verbose:
                 print("Training classifier "+str(m)+" done.\n\n")

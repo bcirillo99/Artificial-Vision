@@ -185,7 +185,8 @@ val_generator = train_datagen.flow_from_dataframe(
     batch_size=batch_size,
     class_mode="categorical",
     classes=classes,
-    validate_filenames=False) 
+    validate_filenames=False,
+    shuffle=False) 
 
 
 label = tf.expand_dims(np.array(df_train["label"].astype("float32").tolist(),dtype="float32"),-1)
