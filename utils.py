@@ -92,7 +92,7 @@ def aar_class(y_true,y_pred):
     mae = mae_func(y_true,y_pred)
     #tf.print(maej_list)
     sigma = tf.sqrt(tf.reduce_mean(tf.square(tf.subtract(maej_list,mae))))
-    aar = 0.5*mmae + 0.5*sigma
+    aar = mmae + sigma
     #tf.print(mae,mmae,sigma,aar)
     return aar
     
