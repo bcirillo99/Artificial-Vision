@@ -191,7 +191,8 @@ val_generator = train_datagen.flow_from_dataframe(
 
 label = tf.expand_dims(np.array(df_train["label"].astype("float32").tolist(),dtype="float32"),-1)
 adaboost = AdaBoost(train_data_dir, df_train, classes, label, epochs=n_epoch, patience=20,reduce_factor=0.1)
-adaboost.fit(M=3,verbose=True)
+adaboost.fit(val_generator,M=3,verbose=True)
+val_generator.reset()
 aar_m,mmae_m,sigma_m,mae_m = adaboost.evaluate(val_generator, df_val, verbose=True)
 print('Val aar:', aar_m)
 print('Val mmae:', mmae_m)

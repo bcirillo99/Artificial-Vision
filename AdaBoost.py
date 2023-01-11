@@ -146,6 +146,7 @@ class AdaBoost:
                 # Update w_i
                 w_i = update_weights(w_i, alpha_m, label, pred)
                 self.dataframe["w_col"] = pd.Series(w_i)
+            self.dataframe.to_csv("AdaBoost/dataframe_"+ str(m)+".csv", index=False)
             generator = self.__update_generator(self.dataframe)
             generator.reset()
             if verbose:
@@ -213,8 +214,6 @@ class AdaBoost:
                 for item in self.alphas:
                     f.write("Alpha "+str(i)+": "+str(item) + "\n")
                     i+=1
-                    
-            self.dataframe.to_csv("AdaBoost/dataframe_"+ str(m)+".csv", index=False)
 
         # Assert that the number of alpha is equale to the number of classifiers
         assert len(self.G_M) == len(self.alphas)
