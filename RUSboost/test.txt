@@ -1,0 +1,36 @@
+Result RUSboost
+Val aar: tf.Tensor(6.918314, shape=(), dtype=float32)
+Val mmae: tf.Tensor(2.5041623, shape=(), dtype=float32)
+Val sigma: tf.Tensor(0.5775235, shape=(), dtype=float32)
+Val mae: tf.Tensor(2.2996957, shape=(), dtype=float32)
+Val maej_list: tf.Tensor(
+[3.8819096 2.3013506 2.342366  2.4045    2.2569501 2.1233683 2.1252916
+ 2.597561 ], shape=(8,), dtype=float32)
+
+Result expert  1
+Val aar: tf.Tensor(6.816475, shape=(), dtype=float32)
+Val mmae: tf.Tensor(2.7842944, shape=(), dtype=float32)
+Val sigma: tf.Tensor(0.39923078, shape=(), dtype=float32)
+Val mae: tf.Tensor(2.7840333, shape=(), dtype=float32)
+Val maej_list: tf.Tensor(
+[3.545226  2.8810735 3.1381674 2.9588    2.5596757 2.3256853 2.3250763
+ 2.5406504], shape=(8,), dtype=float32)
+
+Result expert  2
+Val aar: tf.Tensor(6.5819864, shape=(), dtype=float32)
+Val mmae: tf.Tensor(2.6760154, shape=(), dtype=float32)
+Val sigma: tf.Tensor(0.7419983, shape=(), dtype=float32)
+Val mae: tf.Tensor(2.4511, shape=(), dtype=float32)
+Val maej_list: tf.Tensor(
+[4.522613  2.3794072 2.4933867 2.5732334 2.4535034 2.193388  2.2986896
+ 2.4939024], shape=(8,), dtype=float32)
+
+Result expert  3
+Val aar: tf.Tensor(6.7620287, shape=(), dtype=float32)
+Val mmae: tf.Tensor(2.7112973, shape=(), dtype=float32)
+Val sigma: tf.Tensor(0.52667403, shape=(), dtype=float32)
+Val mae: tf.Tensor(2.5237324, shape=(), dtype=float32)
+Val maej_list: tf.Tensor(
+[3.861809  2.3194177 2.3930678 2.6614    2.5842788 2.514213  2.2911506
+ 3.0650406], shape=(8,), dtype=float32)
+Done.
